@@ -87,6 +87,9 @@ elif toolchain.is_darwin:
         lua,
         sdl2
     ]
+    if toolchain.is_target_ios:
+        # only the iOS port has a camera for the task QR code scanner
+        thirdparty_libs.append(zxing_cpp)
     if geotiff_enabled:
         thirdparty_libs += [
             sqlite3,

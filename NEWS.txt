@@ -1,7 +1,8 @@
 Version 7.46 - not yet released
-* android
+* task
   - add "Scan QR Code" to the task manager to import an XCTrack task
-    with the camera, instead of opening the code in another app #1270
+    with the camera on Android and iOS, instead of opening the code in
+    another app #1270
 * development
   - documentation: document the release and post-release version workflow
 

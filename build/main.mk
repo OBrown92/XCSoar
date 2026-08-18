@@ -661,6 +661,12 @@ XCSOAR_SOURCES += \
 	$(SRC)/Device/SmartDeviceSensors.cpp
 endif
 
+ifeq ($(TARGET_IS_IOS),y)
+XCSOAR_SOURCES += \
+	$(SRC)/Apple/QRScanner.cpp \
+	$(SRC)/Task/QRDecoder.cpp
+endif
+
 ifeq ($(TARGET),ANDROID)
 XCSOAR_SOURCES += \
 	$(SRC)/java/Global.cxx \

@@ -133,10 +133,11 @@ TaskActionsPanel::OnDownloadClicked() noexcept
 }
 #endif
 
-#ifdef ANDROID
+#ifdef HAVE_QR_SCANNER
 /**
  * Open the camera, leaving this dialog open behind it.  The scan runs
- * in a separate Activity and reports back asynchronously, so closing
+ * outside the XCSoar window (an Activity on Android, a
+ * UIViewController on iOS) and reports back asynchronously, so closing
  * here would throw away the pilot's task if they then cancelled the
  * scan.  A task that does arrive is handed to this still-open dialog
  * by MainWindow::OnTaskReceived() via TaskManagerReceiveTask().
@@ -167,7 +168,7 @@ TaskActionsPanel::Prepare([[maybe_unused]] ContainerWindow &_parent,
   AddButton(_("Browse"), [this](){ OnBrowseClicked(); });
   AddButton(_("Save"), [this](){ SaveTask(); });
 
-#ifdef ANDROID
+#ifdef HAVE_QR_SCANNER
   AddButton(_("Scan QR Code"), [this](){ OnScanQRCodeClicked(); });
   SetRowEnabled(SCAN_QR_CODE, HaveQRScanner());
 #endif

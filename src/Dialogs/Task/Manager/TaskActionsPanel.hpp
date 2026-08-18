@@ -15,7 +15,7 @@ class TaskActionsPanel : public RowFormWidget {
     DECLARE,
     BROWSE,
     SAVE,
-#ifdef ANDROID
+#ifdef HAVE_QR_SCANNER
     SCAN_QR_CODE,
 #endif
 #ifdef HAVE_HTTP
@@ -47,7 +47,7 @@ private:
   void OnNewTaskClicked();
   void OnDeclareClicked();
   void OnDownloadClicked() noexcept;
-#ifdef ANDROID
+#ifdef HAVE_QR_SCANNER
   void OnScanQRCodeClicked() noexcept;
 #endif
 
